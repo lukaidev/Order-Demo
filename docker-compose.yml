@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+     
+  mysqldemo:
+   container_name: mysqldemo
+   image: mysql
+   ports:
+    - '3308:3306'
+   environment:
+    - MYSQL_USER=root
+    - MYSQL_ROOT_PASSWORD=123456
+    - MYSQL_DATABASE=laladb
+   volumes:
+      - ./data/mysql  
+      
+  app:
+    container_name: demo-backend
+    restart: on-failure
+    image: demo-backend
+    ports:
+     - '8086:8080'
+    depends_on:
+     - mysqldemo
+    volumes:
+      - ./data/app

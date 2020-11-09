@@ -1,0 +1,48 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.5.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+group = 'com.demo'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	testCompile('org.junit.jupiter:junit-jupiter-api')
+	testCompile('org.junit.jupiter:junit-jupiter-engine')
+	testCompile('org.junit.jupiter:junit-jupiter-params')
+	testCompile('com.h2database:h2')
+	compile('com.fasterxml.jackson.core:jackson-databind')
+	compile('javax.validation:validation-api')
+	compile('org.hibernate.validator:hibernate-validator')
+	compile('org.hibernate.validator:hibernate-validator-annotation-processor')
+//	compile('javax.el:javax.el-api')
+//	compile('org.glassfish.web:javax.el')
+	compile('io.springfox:springfox-swagger2:2.9.2')
+	compile('io.springfox:springfox-swagger-ui:2.9.2')
+	compile('com.googlecode.json-simple:json-simple:1.1')
+	
+}
+
+test {
+	useJUnitPlatform()
+}

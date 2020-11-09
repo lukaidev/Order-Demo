@@ -1,0 +1,15 @@
+
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://mysqldemo:3306/laladb?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: 123456
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+
+
